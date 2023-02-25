@@ -1,0 +1,108 @@
+questão 2:
+
+ def is_fibonacci(n):
+    # Verifica se o número pertence à sequência de Fibonacci
+    a, b = 0, 1
+    while b < n:
+        a, b = b, a + b
+    return b == n
+
+def fibonacci_sequence(n):
+    # Retorna a sequência de Fibonacci 
+    sequence = [0, 1]
+    while sequence[-1] < n:
+        sequence.append(sequence[-1] + sequence[-2])
+    return sequence[:-1]
+
+# Exemplo 
+num = int(input("Digite um número inteiro: "))
+fib_seq = fibonacci_sequence(num)
+if num in fib_seq:
+    print(f"O número {num} pertence à sequência de Fibonacci.")
+else:
+    print(f"O número {num} não pertence à sequência de Fibonacci.")
+
+
+
+
+
+
+
+
+
+questão 3:
+
+ import json
+
+# Leitura do arquivo json contendo o faturamento diário
+with open('faturamento.json', 'r') as f:
+    faturamento = json.load(f)
+
+# Inicialização das variáveis
+menor_valor = float('inf')
+maior_valor = float('-inf')
+soma_valores = 0
+num_dias = 0
+
+# Percorre o faturamento diário para encontrar o menor e o maior valor, e somar os valores para calcular a média
+for valor in faturamento.values():
+    if valor > 0:
+        menor_valor = min(menor_valor, valor)
+        maior_valor = max(maior_valor, valor)
+        soma_valores += valor
+        num_dias += 1
+
+# Cálculo da média mensal
+media = soma_valores / num_dias
+
+# Contagem do número de dias com faturamento diário superior à média
+dias_acima_media = 0
+for valor in faturamento.values():
+    if valor > media:
+        dias_acima_media += 1
+
+# Impressão dos resultados
+print("Menor valor de faturamento diário:", menor_valor)
+print("Maior valor de faturamento diário:", maior_valor)
+print("Número de dias com faturamento diário superior à média mensal:", dias_acima_media)
+
+
+
+questão 4:
+
+total = 67_836.43 + 36_678.66 + 29_229.88 + 27_165.48 + 19_849.53
+
+sp_percentual = 67_836.43 / total * 100
+rj_percentual = 36_678.66 / total * 100
+mg_percentual = 29_229.88 / total * 100
+es_percentual = 27_165.48 / total * 100
+outros_percentual = 19_849.53 / total * 100
+
+print(f"Percentual de representação de SP: {sp_percentual:.2f}%")
+print(f"Percentual de representação de RJ: {rj_percentual:.2f}%")
+print(f"Percentual de representação de MG: {mg_percentual:.2f}%")
+print(f"Percentual de representação de ES: {es_percentual:.2f}%")
+print(f"Percentual de representação de Outros: {outros_percentual:.2f}%")
+
+A saida será:
+
+Percentual de representação de SP: 42.36%
+Percentual de representação de RJ: 22.95%
+Percentual de representação de MG: 18.28%
+Percentual de representação de ES: 16.97%
+Percentual de representação de Outros: 12.44%
+
+Questão 5:
+
+
+# Obter a string a ser invertida
+string_original = input("Digite uma string para ser invertida: ")
+
+# Inverter a string
+string_invertida = ""
+for i in range(len(string_original)-1, -1, -1):
+    string_invertida += string_original[i]
+
+# Exibir a string invertida
+print("A string invertida é:", string_invertida)
+
